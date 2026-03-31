@@ -1,0 +1,99 @@
+:host {
+  display: block;
+  background: #0b0c0f;
+  color: #e8eaed;
+  min-height: 100vh;
+}
+
+/* layout */
+.container-fluid {
+  max-width: 1280px;
+}
+
+/* typography */
+h1,
+h4,
+h6 {
+  letter-spacing: -0.02em;
+}
+
+.text-muted {
+  color: #9aa0a6 !important;
+}
+
+.text-secondary {
+  color: #b0b3b8 !important;
+}
+
+/* buttons */
+.btn-dark {
+  background: #ffffff;
+  color: #000;
+  border: none;
+}
+
+.btn-dark:hover {
+  background: #e6e6e6;
+}
+
+.btn-outline-dark {
+  border-color: #3c4043;
+  color: #e8eaed;
+}
+
+.btn-outline-dark:hover {
+  background: #1a1c1f;
+}
+
+/* cards */
+.border {
+  border: 1px solid #1f2227 !important;
+}
+
+.rounded-4 {
+  border-radius: 16px !important;
+}
+
+.bg-light {
+  background: #111317 !important;
+}
+
+/* sections */
+.border-top {
+  border-top: 1px solid #1f2227 !important;
+}
+
+/* experience + project cards */
+.p-4 {
+  background: #0f1115;
+}
+
+/* badges */
+.badge {
+  padding: 8px 12px;
+  font-weight: 500;
+  background: #111317 !important;
+  border: 1px solid #2a2e35;
+}
+
+/* links */
+a {
+  text-decoration: none;
+  color: #e8eaed;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container-fluid {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
