@@ -85,7 +85,11 @@ a {
 a:hover {
   color: #ffffff;
 }
-
+.skill-badge {
+  background: #1a1c22 !important;
+  color: #ffffff !important;
+  border: 1px solid #2a2e35;
+}
 /* responsive */
 @media (max-width: 768px) {
   h1 {
