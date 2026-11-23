@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global light, professional theme */
+:root {
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --border: #e3e8ef;
+  --heading: #111827;
+  --text: #374151;
+  --muted: #6b7280;
+  --primary: #2459d6;
+  --primary-dark: #1b3f9c;
+  --primary-soft: #eef3fe;
+
+  --bs-primary: #2459d6;
+  --bs-primary-rgb: 36, 89, 214;
+  --bs-body-bg: #f7f9fc;
+  --bs-body-color: #374151;
+  --bs-link-color: #2459d6;
+  --bs-link-hover-color: #1b3f9c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn-primary {
+  --bs-btn-bg: #2459d6;
+  --bs-btn-border-color: #2459d6;
+  --bs-btn-hover-bg: #1b3f9c;
+  --bs-btn-hover-border-color: #1b3f9c;
+  --bs-btn-active-bg: #1b3f9c;
+  --bs-btn-active-border-color: #1b3f9c;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #2459d6;
+  --bs-btn-border-color: #2459d6;
+  --bs-btn-hover-bg: #2459d6;
+  --bs-btn-hover-border-color: #2459d6;
+  --bs-btn-active-bg: #2459d6;
+  --bs-btn-active-border-color: #2459d6;
+}

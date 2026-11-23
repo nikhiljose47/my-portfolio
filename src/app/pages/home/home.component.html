@@ -1,134 +1,175 @@
-<section class="container-fluid px-3 px-md-5 py-4">
-  <!-- HERO -->
-  <div class="row align-items-center py-5">
-    <div class="col-lg-7">
-      <h1 class="display-5 fw-semibold mb-3">Nikhil Jose</h1>
-      <h5 class="text-muted mb-3">
-        Senior Flutter Developer · System Design · AI
-      </h5>
-      <p class="text-secondary mb-4">
-        Building scalable cross-platform apps with clean architecture,
-        performance optimization, and real-world impact.
-      </p>
-
-      <div class="d-flex flex-wrap gap-2">
-        <a class="btn btn-dark px-4" href="#projects">View Projects</a>
-      </div>
-    </div>
-
-    <div class="col-lg-5 text-lg-end mt-4 mt-lg-0">
-      <div class="border rounded-4 p-4 bg-light">
-        <div class="small text-muted">Location</div>
-        <div class="fw-semibold">Bengaluru, India</div>
-
-        <div class="small text-muted mt-3">Experience</div>
-        <div class="fw-semibold">5+ Years</div>
-
-        <div class="small text-muted mt-3">Core</div>
-        <div class="fw-semibold">Flutter · Architecture · BLoC</div>
-      </div>
-    </div>
+<header class="topbar">
+  <div class="wrap d-flex align-items-center justify-content-between">
+    <a class="brand" href="#top">NJ</a>
+    <nav class="nav-links d-none d-md-flex gap-4">
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary btn-sm px-3" [href]="hero.resume" target="_blank" rel="noopener">
+      <i class="bi bi-download me-1"></i>Resume
+    </a>
   </div>
+</header>
+
+<main id="top" class="wrap">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-8">
+        <p class="eyebrow">Hello, I'm</p>
+        <h1>{{ hero.name }}</h1>
+        <h2 class="role">{{ hero.role }}</h2>
+        <p class="lead-text">{{ hero.summary }}</p>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <a class="btn btn-primary px-4" href="#work">View Work</a>
+          <a class="btn btn-outline-primary px-4" href="#contact">Get in touch</a>
+        </div>
+        <div class="meta mt-4">
+          <span><i class="bi bi-geo-alt"></i>{{ hero.location }}</span>
+          <a [href]="'mailto:' + hero.email"><i class="bi bi-envelope"></i>{{ hero.email }}</a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="stats">
+          @for (s of stats; track s.label) {
+            <div class="stat">
+              <div class="stat-value">{{ s.value }}</div>
+              <div class="stat-label">{{ s.label }}</div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- EXPERIENCE -->
-  <div class="py-5 border-top">
-    <h4 class="mb-4 fw-semibold">Experience</h4>
-
-    <div class="row g-3">
-      <div class="col-md-6">
-        <div class="p-4 border rounded-4 h-100">
-          <div class="small text-muted">2024 — 2025</div>
-          <h6 class="fw-semibold mb-1">Sr. Flutter Developer</h6>
-          <div class="text-muted small mb-2">CitiusTech</div>
-          <p class="small text-secondary mb-0">
-            Built healthcare middleware, reusable libraries, improved
-            performance ~30%.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="p-4 border rounded-4 h-100">
-          <div class="small text-muted">2021</div>
-          <h6 class="fw-semibold mb-1">Flutter Developer</h6>
-          <div class="text-muted small mb-2">Cowdiar</div>
-          <p class="small text-secondary mb-0">
-            Developed modular apps, REST integrations, CI/CD pipelines.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="p-4 border rounded-4 h-100">
-          <div class="small text-muted">2017 — 2020</div>
-          <h6 class="fw-semibold mb-1">Software Developer</h6>
-          <div class="text-muted small mb-2">Chimple Learning</div>
-          <p class="small text-secondary mb-0">
-            Built award-level learning app, OpenStreetMap integration, game
-            features.
-          </p>
-        </div>
-      </div>
+  <section id="experience" class="block">
+    <h3 class="section-title">Professional Experience</h3>
+    <div class="timeline">
+      @for (job of experience; track job.period) {
+        <article class="job">
+          <div class="job-head">
+            <div>
+              <h4>{{ job.role }}</h4>
+              <div class="company">
+                {{ job.company }}
+                @if (job.client) {
+                  <span class="client">Client: {{ job.client }}</span>
+                }
+              </div>
+            </div>
+            <div class="job-when">
+              <div class="period">{{ job.period }}</div>
+              <div class="loc">{{ job.location }}</div>
+            </div>
+          </div>
+          <ul>
+            @for (p of job.points; track p) {
+              <li>{{ p }}</li>
+            }
+          </ul>
+        </article>
+      }
     </div>
-  </div>
+  </section>
 
-  <!-- PROJECTS -->
-  <div id="projects" class="py-5 border-top">
-    <h4 class="mb-4 fw-semibold">Projects</h4>
-
+  <!-- WORK -->
+  <section id="work" class="block">
+    <h3 class="section-title">Featured Work</h3>
     <div class="row g-3">
-      <div class="col-md-6">
-        <div class="p-4 border rounded-4 h-100">
-          <h6 class="fw-semibold">Typer Pro</h6>
-          <div class="small text-muted mb-2">Typing Speed Platform</div>
-          <p class="small text-secondary mb-0">
-            Real-time typing accuracy & speed evaluation with deploy-ready
-            infra.
-          </p>
+      @for (f of featured; track f.title) {
+        <div class="col-md-6">
+          <div class="card-box h-100">
+            <div class="icon-chip"><i class="bi" [class]="f.icon"></i></div>
+            <h4>{{ f.title }}</h4>
+            <div class="sub">{{ f.subtitle }}</div>
+            <p>{{ f.desc }}</p>
+            <a class="link-arrow" [href]="f.url" target="_blank" rel="noopener">
+              {{ f.linkLabel }} <i class="bi bi-arrow-up-right"></i>
+            </a>
+          </div>
         </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="p-4 border rounded-4 h-100">
-          <h6 class="fw-semibold">Hand Gesture AI</h6>
-          <div class="small text-muted mb-2">Deep Learning System</div>
-          <p class="small text-secondary mb-0">
-            95% accurate gesture recognition using physiological sensors.
-          </p>
-        </div>
-      </div>
+      }
     </div>
-  </div>
+
+    <h5 class="sub-title">Other Projects</h5>
+    <div class="row g-3">
+      @for (p of otherProjects; track p.title) {
+        <div class="col-md-6">
+          <div class="card-box h-100">
+            <h4>{{ p.title }}</h4>
+            <div class="sub">{{ p.tag }}</div>
+            <p class="mb-0">{{ p.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
 
   <!-- SKILLS -->
-  <div class="py-5 border-top">
-    <h4 class="mb-4 fw-semibold">Skills</h4>
-
-    <div class="d-flex flex-wrap gap-2">
-      <span class="badge skill-badge">Flutter</span>
-      <span class="badge skill-badge">Dart</span>
-      <span class="badge skill-badge">BLoC</span>
-      <span class="badge skill-badge">Clean Architecture</span>
-      <span class="badge skill-badge">Firebase</span>
-      <span class="badge skill-badge">Angular</span>
-      <span class="badge skill-badge">GraphQL</span>
-      <span class="badge skill-badge">Machine Learning</span>
+  <section id="skills" class="block">
+    <h3 class="section-title">Technical Skills</h3>
+    <div class="row g-3">
+      @for (g of skills; track g.label) {
+        <div class="col-md-6 col-lg-4">
+          <div class="card-box h-100">
+            <div class="skill-label">{{ g.label }}</div>
+            <div class="d-flex flex-wrap gap-2">
+              @for (i of g.items; track i) {
+                <span class="chip">{{ i }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
     </div>
-  </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="block">
+    <h3 class="section-title">Education</h3>
+    <div class="row g-3">
+      @for (e of education; track e.degree) {
+        <div class="col-md-6">
+          <div class="card-box h-100">
+            <h4>{{ e.degree }}</h4>
+            <div class="sub">{{ e.school }}</div>
+            <div class="period mt-2">{{ e.period }}</div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
 
   <!-- CONTACT -->
-  <div class="py-5 border-top">
-    <h4 class="mb-4 fw-semibold">Contact</h4>
-
-    <div class="d-flex flex-column gap-2">
-      <div>Email: {{ "nikhiljose47&#64;gmail.com" }}</div>
-      <div>Phone: +91 8848386668</div>
-
-      <div class="d-flex gap-3 mt-2">
-        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-        <a href="https://github.com" target="_blank">GitHub</a>
-        <a href="https://drive.google.com/file/d/15ASUpbB_o9jLgMEx5OpCRg4ICyKWa7Po/view?usp=sharing" target="_blank">Resume</a>
+  <section id="contact" class="block">
+    <h3 class="section-title">Contact & Profiles</h3>
+    <div class="card-box contact">
+      <div class="row g-4">
+        <div class="col-md-5">
+          <div class="contact-line"><i class="bi bi-envelope"></i><a [href]="'mailto:' + hero.email">{{ hero.email }}</a></div>
+          <div class="contact-line"><i class="bi bi-telephone"></i><a [href]="'tel:' + hero.phone.replaceAll(' ', '')">{{ hero.phone }}</a></div>
+          <div class="contact-line"><i class="bi bi-geo-alt"></i><span>{{ hero.location }}</span></div>
+        </div>
+        <div class="col-md-7">
+          <div class="row g-2">
+            @for (p of profiles; track p.label) {
+              <div class="col-sm-6">
+                <a class="profile-link" [href]="p.url" target="_blank" rel="noopener">
+                  <i class="bi" [class]="p.icon"></i>{{ p.label }}
+                </a>
+              </div>
+            }
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">© {{ year }} {{ hero.name }}. All rights reserved.</div>
+</footer>
